@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<link href='http://fonts.googleapis.com/css?family=Philosopher|Merriweather:300' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+		<!--[if lte IE 8]>
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-old-ie-min.css">
+		<![endif]-->
+		<!--[if gt IE 8]><!-->
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+		<!--<![endif]-->
+		<title>Is it raining now?</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style type="text/css">
+
+			.main-text [class *= "pure-u"] {
+				font-family: "Philosopher", sans-serif;
+				font-size: 10em;
+				font-weight: bold;
+				text-align: center;
+				margin: 1em auto;
+			}
+
+			.meta-info [class *= "pure-u"] {
+				font-family: "Merriweather", serif !important;
+				font-size: 1.2em;
+				text-align: center;
+				color: #CCC;
+			}
+
+			.green {
+				background-color: green;
+				color: white;
+			}
+
+			.red {
+				background-color: red;
+				color: white;
+			}
+
+		</style>
+	</head>
+	<body class="{{ 'green' if raining else 'red' }}">
+		<div class="pure-g main-text">
+			<div class="pure-u-1">{{ 'yes' if raining else 'no'}}</div>
+		</div>
+		<div class="pure-g meta-info">
+			<div class="pure-u-1 pure-u-md-1-2">{{ meta.weather }}</div>
+			<div class="pure-u-1 pure-u-md-1-2">{{ meta.location }}</div>
+		</div>
+	</body>
+</html>

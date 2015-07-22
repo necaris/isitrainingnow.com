@@ -1,0 +1,91 @@
+    <link href='http://fonts.googleapis.com/css?family=Philosopher|Merriweather:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+    <!--<![endif]-->
+    <title>Is it raining now?</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript">
+
+     function redirectToLocation(lat, lon) {
+       var url = "lat=" + lat + "&lon=" + lon;
+       var fullUrl = "/qs?" + url;
+       document.location = fullUrl;
+     }
+
+     function redirectToIP() {
+       document.location = "/ip";
+     }
+
+     function successCallback(position) {
+       var lat = position.coords.latitude;
+       var lon = position.coords.longitude;
+       redirectToLocation(lat, lon);
+     }
+
+     function errorCallback(err) {
+       console.error(err);
+       redirectToIP();
+     }
+
+     if (navigator.geolocation) {
+       navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+       // Ensure that we don't wait forever
+       setTimeout(redirectToIP, 7500);
+     }
+     else {
+       redirectToIP();
+     }
+    </script>
+    <style type="text/css">
+
+      body {
+        color: white;
+      }
+
+      .main-text [class *= "pure-u"] {
+        font-family: "Philosopher", sans-serif;
+        font-size: 10em;
+        font-weight: bold;
+        text-align: center;
+        margin: 1em auto;
+      }
+
+      .meta-info [class *= "pure-u"] {
+        font-family: "Merriweather", serif !important;
+        font-size: 1.2em;
+        text-align: center;
+        color: #CCC;
+      }
+
+      .green {
+        background-color: green;
+      }
+
+      .red {
+        background-color: red;
+      }
+
+      .gray {
+        background-color: #666;
+      }
+
+    </style>
+  </head>
+  <body class="gray">
+    <div class="pure-g main-text">
+      <div class="pure-u-1">locating...</div>
+    </div>
+  </body>
+</html>
+
+<html>
+  <head>
+    <title>Is it raining now?</title>
+  </head>
+  <body>
+  </body>
+</html>
