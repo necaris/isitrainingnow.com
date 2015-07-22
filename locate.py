@@ -1,4 +1,6 @@
-#
-# TODO: Provide a location function given an IP, and maybe even one
-# that finds your IP for you.
-#
+"""
+Location helpers for isitrainingnow.com
+"""
+
+def location_from_ip(ip):
+    pass

@@ -44,8 +44,13 @@
 			<div class="pure-u-1">{{ 'yes' if raining else 'no'}}</div>
 		</div>
 		<div class="pure-g meta-info">
-			<div class="pure-u-1 pure-u-md-1-2">{{ meta.weather }}</div>
-			<div class="pure-u-1 pure-u-md-1-2">{{ meta.location }}</div>
+			<div class="pure-u-1 pure-u-md-1-2">
+					<p>Weather: {{ weather.summary }}, {{ weather.temperature }}&deg;</p>
+			</div>
+			<div class="pure-u-1 pure-u-md-1-2">
+				<p>We think you're at: {{ location[0] | round(2) }}, {{ location[1] | round(2) }}</p>
+				<p>{{ location_meta }}</p>
+			</div>
 		</div>
 	</body>
 </html>
